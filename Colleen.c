@@ -1,0 +1,1 @@
+/*OUTSIDE!*/int printf(const char *, ...);char *s="/*OUTSIDE!*/int printf(const char *, ...);char *s=%c%s%c;void ft(){printf(s,34,s,34);}int main(){/*INSIDE!*/ft();}";void ft(){printf(s,34,s,34);}int main(){/*INSIDE!*/ft();}
