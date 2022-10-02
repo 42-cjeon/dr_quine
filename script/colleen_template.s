@@ -9,13 +9,15 @@ section .text
 
 _main:
   ;INSIDE.
+  call _ft
+  xor rax, rax
+  ret
+
+_ft:
   xor rax, rax
   lea rdi, [rel msg]
-  mov rsi, 37
-  lea rdx, [rel metamsg]
-  mov rcx, 37
+  lea rsi, [rel metamsg]
   call _printf
-  xor rax, rax
   ret
 
 section .data
