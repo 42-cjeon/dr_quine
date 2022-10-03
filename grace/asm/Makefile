@@ -19,7 +19,7 @@ all: $(NAME)
 
 clean:
 	rm -f $(OBJ)
-	rm -f out
+	rm -f Grace_kid.s
 
 fclean: clean
 	rm -f $(NAME)
@@ -28,7 +28,7 @@ re: fclean
 	$(MAKE) all
 
 run: all
-	./$(NAME) > out
-	diff ./$(SRC) out
+	./$(NAME)
+	diff ./$(SRC) Grace_kid.s
 
 .PHONY: all clean fclean re run

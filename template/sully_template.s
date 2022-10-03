@@ -18,6 +18,10 @@ section .text
   ; stdlib.h
   extern _exit
 
+  ;string.h
+  extern _strrchr
+  extern _strcmp
+
 %define STRING !
 %define AS_STRING(&x) x
 
@@ -29,8 +33,25 @@ _main:
   mov dword [rsp], 5
   cmp dword [rsp], 0
   je _main_end
+
+  lea rdi, [rel filename]
+  mov esi, '/'
+  call _strrchr
+  cmp rax, 0
+  je not_found
+  inc rax
+  jmp end_search
+not_found:
+  lea rax, [rel filename]
+end_search:
+  mov rdi, rax
+  lea rsi, [rel origin_name]
+  call _strcmp
+  cmp eax, 0
+  je skip_sub
   sub dword [rsp], 1
-  
+skip_sub:
+
   lea rdi, [rel out_source_name],
   lea rsi, [rel out_source_template]
   mov edx, [rsp]
@@ -119,6 +140,8 @@ section .bss
   compile_cmd db 0x400 dup ?
 
 section .data
+  origin_name db 'Sully.s', 0
+  filename db __FILE__, 0
   out_source_template db './Sully_%d.s', 0
   out_object_template db './Sully_%d.o', 0
   out_binary_template db './Sully_%d', 0

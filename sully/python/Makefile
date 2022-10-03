@@ -9,6 +9,6 @@ clean:
 
 run:
 	$(PYTHON) ./$(NAME)
-	diff ./$(NAME) ./$(BASENAME)_4.py; diff ./$(NAME) ./$(BASENAME)_3.py; diff ./$(NAME) ./$(BASENAME)_2.py; diff ./$(NAME) ./$(BASENAME)_1.py; diff ./$(NAME) ./$(BASENAME)_0.py
+	diff ./$(NAME) ./$(BASENAME)_5.py; diff ./$(NAME) ./$(BASENAME)_4.py; diff ./$(NAME) ./$(BASENAME)_3.py; diff ./$(NAME) ./$(BASENAME)_2.py; diff ./$(NAME) ./$(BASENAME)_1.py; diff ./$(NAME) ./$(BASENAME)_0.py
 
 .PHONY: clean run

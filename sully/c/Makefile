@@ -28,6 +28,6 @@ re: fclean
 
 run: all
 	./$(NAME)
-	diff ./$(SRC) ./$(NAME)_4.c; diff ./$(SRC) ./$(NAME)_3.c; diff ./$(SRC) ./$(NAME)_2.c; diff ./$(SRC) ./$(NAME)_1.c; diff ./$(SRC) ./$(NAME)_0.c
+	diff ./$(SRC) ./$(NAME)_5.c; diff ./$(SRC) ./$(NAME)_4.c; diff ./$(SRC) ./$(NAME)_3.c; diff ./$(SRC) ./$(NAME)_2.c; diff ./$(SRC) ./$(NAME)_1.c; diff ./$(SRC) ./$(NAME)_0.c
 
 .PHONY: all clean fclean re run
