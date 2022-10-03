@@ -32,7 +32,7 @@ _main:
 
   mov dword [rsp], 5
   cmp dword [rsp], 0
-  je _main_end
+  jle _main_end
 
   lea rdi, [rel filename]
   mov esi, '/'
