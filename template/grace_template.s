@@ -7,21 +7,13 @@ section .text
 
 %macro DECL_FUNC 1
   %1:
-    push rbp
-    mov rbp, rsp
-    sub rsp, 4
-    mov byte [rsp], 37
+    push rbx
     xor rax, rax
     lea rdi, [rel msg]
-    mov rsi, 37
-    lea rdx, [rel metamsg]
-    mov rcx, 37
-    mov r8, 37
-    mov r9, 37
+    lea rsi, [rel metamsg]
     call _printf
     xor rax, rax
-    mov rsp, rbp,
-    pop rbp
+    pop rbx
     ret
 %endmacro
 

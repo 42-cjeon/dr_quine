@@ -10,7 +10,6 @@ section .text
 _main:
   ;INSIDE.
   call _ft
-  xor rax, rax
   ret
 
 _ft:
@@ -18,6 +17,7 @@ _ft:
   lea rdi, [rel msg]
   lea rsi, [rel metamsg]
   call _printf
+  xor rax, rax
   ret
 
 section .data
