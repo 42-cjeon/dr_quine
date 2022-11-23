@@ -8,7 +8,9 @@ section .text
 %define AS_STRING(&x) x
 
 %macro DECL_FUNC 1
-  %1:    
+  %1:
+    push rbp
+    mov rbp, rsp
     lea rdi, [rel outfilename]
     lea rsi, [rel flag_write_only]
     call _fopen
@@ -18,14 +20,13 @@ section .text
     lea rsi, [rel fopen]
     call _err
   open_success:
-    push rbx
     mov rdi, rax
     lea rsi, [rel msg]
     lea rdx, [rel metamsg]
     xor rax, rax
     call _fprintf
-    pop rbx
     xor rax, rax
+    pop rbp
     ret
 %endmacro
 
